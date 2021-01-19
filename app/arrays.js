@@ -1,59 +1,62 @@
 exports = typeof window === 'undefined' ? global : window;
 
 exports.arraysAnswers = {
-  indexOf: function(arr, item) {
-
+  indexOf: function (arr, item) {
+    return arr.indexOf(item);
   },
 
-  sum: function(arr) {
-
+  sum: function (arr) {
+    return arr.reduce((prev, now) => (prev += now), 0);
   },
 
-  remove: function(arr, item) {
+  remove: function (arr, item) {},
 
+  removeWithoutCopy: function (arr, item) {},
+
+  append: function (arr, item) {
+    arr.push(item);
+    return arr;
   },
 
-  removeWithoutCopy: function(arr, item) {
-
+  truncate: function (arr) {
+    arr.pop();
+    return arr;
   },
 
-  append: function(arr, item) {
-
+  prepend: function (arr, item) {
+    arr.unshift(item);
+    return arr;
   },
 
-  truncate: function(arr) {
-
+  curtail: function (arr) {
+    arr.shift();
+    return arr;
   },
 
-  prepend: function(arr, item) {
-
+  concat: function (arr1, arr2) {
+    return arr1.concat(arr2);
   },
 
-  curtail: function(arr) {
-
+  insert: function (arr, item, index) {
+    arr.splice(index, 0, item);
+    return arr;
   },
 
-  concat: function(arr1, arr2) {
+  count: function (arr, item) {},
 
+  duplicates: function (arr) {},
+
+  square: function (arr) {
+    return arr.map((item) => Math.pow(item, 2));
   },
 
-  insert: function(arr, item, index) {
-
+  findAllOccurrences: function (arr, target) {
+    return arr
+      .map((item, index) => {
+        if (item === target) {
+          return index;
+        }
+      })
+      .filter((val) => val !== undefined);
   },
-
-  count: function(arr, item) {
-
-  },
-
-  duplicates: function(arr) {
-
-  },
-
-  square: function(arr) {
-
-  },
-
-  findAllOccurrences: function(arr, target) {
-
-  }
 };
